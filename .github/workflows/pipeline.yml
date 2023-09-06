@@ -11,3 +11,14 @@ jobs:
           run: echo its working
         - name: building
           run: mvn clean install -U -DskipTests=true
+        - name: Unit Tests
+          run: mvn clean install '-Dtest=!%regex[io.opensaber.registry.client.*]' -DfailIfNoTests=false
+        - name: Package
+          run: |
+            chmod 777 ./build.sh
+            ./build.sh
+        - name: Artifacts
+          uses: actions/upload-artifact@v3
+          with:
+            name: metadata.json
+            path: metadata.json
