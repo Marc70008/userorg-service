@@ -9,3 +9,5 @@ jobs:
           uses: "actions/checkout@master"
         - name: test
           run: echo its working
+        - name: building
+          run: mvn clean install -U -DskipTests=true
