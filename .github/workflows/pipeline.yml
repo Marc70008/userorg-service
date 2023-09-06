@@ -1,0 +1,9 @@
+name: pipeline-action
+on:
+  workflow_dispatch:
+jobs:
+  test_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+        - name: test
+          run: echo its working
